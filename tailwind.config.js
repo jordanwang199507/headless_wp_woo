@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        monoton: ["Monoton", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        test: ["Montserrat Subrayada", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        electro: ["Electro", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
