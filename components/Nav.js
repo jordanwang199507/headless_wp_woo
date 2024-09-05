@@ -23,7 +23,7 @@ export default function Nav({ menuItems }) {
   };
 
   return (
-    <nav>
+    <nav className="column">
       <div className="row nav_row">
         <Link href="/" className="flex gap-2 flex-center">
           <Logo className="nav_logo" />
@@ -92,7 +92,7 @@ export default function Nav({ menuItems }) {
                 <div
                   className={`menu_divider ${
                     isSecondaryMenuOpen ? "active" : ""
-                  }`}
+                  } `}
                 ></div>
                 <div
                   className={`nav_menuDrop_subMenu ${

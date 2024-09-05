@@ -1,6 +1,7 @@
 import { client } from "../../utils/apollo";
 import { gql } from "@apollo/client";
-import PostCard from "../../components/PostCard";
+import BlogCard from "../../components/BlogCard";
+import BlogsContent from "../../components/BlogsContent";
 export default async function Blogs() {
   const GET_MENU = gql`
     query GetAllPosts {
@@ -24,6 +25,39 @@ export default async function Blogs() {
               caption
             }
           }
+
+          # Fetch categories
+          categories {
+            nodes {
+              name
+              uri
+            }
+          }
+
+          # Fetch tags
+          tags {
+            nodes {
+              name
+              uri
+            }
+          }
+
+          # Fetch comments
+          comments {
+            nodes {
+              content
+              date
+              author {
+                node {
+                  name
+                  email
+                  avatar {
+                    url
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -33,15 +67,36 @@ export default async function Blogs() {
   });
   // console.log(data.posts.nodes.map((node) => node));
   data.posts.nodes.map((node) => {
-    const { author } = node;
+    const { author, categories, tags, comments } = node;
     if (author && author.node) {
       const { firstName, lastName, name } = author.node;
       console.log(`Author: ${firstName} ${lastName} (${name})`);
     }
+    if (categories && categories.nodes) {
+      categories.nodes.forEach((category) => {
+        const { name, uri } = category;
+        console.log(`Category: ${name}, URI: ${uri}`);
+      });
+    }
+    if (tags && tags.nodes) {
+      tags.nodes.forEach((tag) => {
+        const { name, uri } = tag;
+        // console.log(`Tag: ${name}, URI: ${uri}`);
+      });
+    }
+    if (comments && comments.nodes) {
+      comments.nodes.forEach((comment) => {
+        const { content, date, author } = comment;
+        const { name, email, avatar } = author.node;
+        console.log(
+          `Comment: ${content}, Date: ${date}, Name:${name}, Email: ${email}, Avartar URL: ${avatar.url}`
+        );
+      });
+    }
   });
   return (
-    <section className="blogs">
-      <div className="row blogs_row">
+    <section className="blogs column">
+      <div className="row blogs_row-header">
         <div className="blogs_intro">
           <h1 className="primary_title">Blog</h1>
           <h3 className="secondary_title blogs_secondary">
@@ -53,12 +108,9 @@ export default async function Blogs() {
           </p>
         </div>
       </div>
-      <div className="row blogs_row-container">
-        <div className="grid blogs_container">
-          {data.posts.nodes.map((post) => {
-            return <PostCard key={post.uri} post={post}></PostCard>;
-          })}
-        </div>
+      <div className="blogs_bg"></div>
+      <div className="row blogs_row-content">
+        <BlogsContent posts={data.posts.nodes} />
       </div>
     </section>
   );
