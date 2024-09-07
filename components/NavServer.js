@@ -5,7 +5,7 @@ import Nav from "./Nav";
 
 export default async function NavServer() {
   const GET_MENU = gql`
-    query GET_MENU_BY_NAME {
+    query GET_MENU_ITEM {
       menuItems(where: { parentId: "0", location: PRIMARY }) {
         nodes {
           id

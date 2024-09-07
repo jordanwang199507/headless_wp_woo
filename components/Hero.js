@@ -16,7 +16,7 @@ export default async function Hero() {
   const { data } = await client.query({
     query: GET_SITEINFO,
   });
-  console.log(data);
+  // console.log(data);
   return (
     <section className="hero column">
       <div className="row hero_row">
