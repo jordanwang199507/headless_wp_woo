@@ -17,6 +17,8 @@
   - [🔨 Created By](#-created-by)
     
 ## 📷 Thumbnails
+<img src="https://github.com/user-attachments/assets/ee97353c-2bb1-4396-a135-8bc732929039" alt="Thumbnail 1" width="500" height="300">
+<img src="https://github.com/user-attachments/assets/72f619ed-1c0d-4118-a4b6-97dd0eb5136e" alt="Thumbnail 2" width="500" height="300">
 
 ## 🌟 Features
 
