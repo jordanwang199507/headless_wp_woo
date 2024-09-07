@@ -16,7 +16,7 @@ export default async function ProductPage({ params }) {
       <h1>{product.name}</h1>
       <p>{product.description}</p>
       <p>Price: {product.price}</p>
-      <AddToCartButton productId={product.id} />
+      <AddToCartButton productId={product.id} price={product.price} />
     </div>
   );
 }

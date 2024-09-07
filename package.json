@@ -11,6 +11,8 @@
   "dependencies": {
     "@apollo/client": "^3.11.4",
     "@apollo/experimental-nextjs-app-support": "^0.11.2",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.4.0",
     "@svgr/webpack": "^8.1.0",
     "apollo": "^2.34.0",
     "axios": "^1.7.4",
@@ -19,6 +21,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-query": "^3.39.3",
+    "stripe": "^16.10.0",
     "swr": "^2.2.5"
   },
   "devDependencies": {
